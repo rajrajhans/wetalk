@@ -2,8 +2,20 @@ from datetime import *
 from peewee import *
 from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash
+import os
 
-DATABASE=SqliteDatabase('social.db')
+DATABASE_proxy = Proxy()
+
+if 'HEROKU' in os.environ:
+    import urlparse, psycopg2
+    urlparse.uses_netloc.append('postgres')
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
+    DATABASE = PostgresqlDatabase(database=url.path[1:], user=url.username, password=url.password, host=url.hostname, port=url.port)
+    DATABASE_proxy.initialize(DATABASE)
+else:
+    DATABASE = SqliteDatabase('social.db')
+    DATABASE_proxy.initialize(DATABASE)
+
 
 #UserMixin goes first, and then Model since User is essentially a Model class, and UserMixin just enhances it's functionality
 

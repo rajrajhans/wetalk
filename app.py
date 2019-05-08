@@ -24,7 +24,7 @@ def load_user(userid):
 @app.before_request
 def before_request():
     #connect to the database
-    g.db=models.DATABASE
+    g.db=models.DATABASE_proxy
     g.db.connect()
     g.user = current_user
 
@@ -151,14 +151,4 @@ def unfollow(username):
 
 if __name__=='__main__':
     models.initialize()
-    try:
-
-        models.User.create(
-            username='Raj',
-            email='raj@rajhans.com',
-            password='password',
-            is_admin=True
-        )
-    except:
-        pass
     app.run(debug=DEBUG, port=PORT)
