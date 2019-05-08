@@ -27,7 +27,7 @@ class User(UserMixin, Model):
     is_admin = BooleanField(default=False)
 
     class Meta:
-        database = DATABASE
+        database = DATABASE_proxy
         order_by = ('-joined_at',)
 
     def get_posts(self):
@@ -81,7 +81,7 @@ class Post(Model):
     content = TextField()
 
     class Meta:
-        database = DATABASE
+        database = DATABASE_proxy
         order_by = ('-timestamp',)
 
 class Relationship(Model):
@@ -89,13 +89,13 @@ class Relationship(Model):
     to_user = ForeignKeyField(User, related_name='related_to')
 
     class Meta:
-        database = DATABASE
+        database = DATABASE_proxy
         indexes = (
             ((('from_user', 'to_user'), True),)
         )
 
 
 def initialize():
-    DATABASE.connect()
-    DATABASE.create_tables([User, Post, Relationship], safe=True)
-    DATABASE.close()
+    DATABASE_proxy.connect()
+    DATABASE_proxy.create_tables([User, Post, Relationship], safe=True)
+    DATABASE_proxy.close()
