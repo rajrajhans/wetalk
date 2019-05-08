@@ -1,5 +1,5 @@
 body{
-  background-color: #181721;
+  background-color: #E0E0E0;
   height: 125vh;
   margin-top: 80px;
   font-family: sans-serif;
@@ -40,4 +40,9 @@ header{
 
 .bodi{
   margin-top: 100px;
+}
+
+.container{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
