@@ -81,7 +81,9 @@ def post():
         flash("Message Posted! Thanks", "success")
         return redirect(url_for('index'))
     return render_template('post.html', form=forme)
-
+@app.route('/home')
+def home():
+    return render_template('homepage.html')
 @app.route('/')
 def index():
     stream= models.Post.select()
@@ -89,14 +91,17 @@ def index():
 
 @app.route('/stream')
 @app.route('/stream/<username>')
-def stream(username=None):
+def stream(username=None, myprofile=None):
     template='stream.html'
-    if username and username != current_user.username:
-        user = models.User.select().where(models.User.username ** username).get()
-        stream= user.posts
+    if myprofile==1:
+        pass
     else:
-        stream = current_user.get_stream()
-        user=current_user
+        if username and username != current_user.username:
+            user = models.User.select().where(models.User.username ** username).get()
+            stream= user.posts
+        else:
+            stream = current_user.get_stream()
+            user=current_user
     if username:
         template = 'user_stream.html'
         return render_template(template, stream=stream, user=user)
