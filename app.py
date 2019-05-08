@@ -4,8 +4,6 @@ from flask_bcrypt import check_password_hash
 import models
 import forms
 
-DEBUG = True
-PORT = 8000
 
 app = Flask(__name__)
 app.secret_key='wshofj90792jwfjw903u2m093840298.!rajrajhans!'
@@ -151,4 +149,4 @@ def unfollow(username):
 
 if __name__=='__main__':
     models.initialize()
-    app.run(debug=DEBUG, port=PORT)
+    app.run()
