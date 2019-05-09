@@ -2,6 +2,7 @@ from datetime import *
 from peewee import *
 from flask_login import UserMixin, AnonymousUserMixin
 from flask_bcrypt import generate_password_hash
+from hashlib import md5
 import os
 
 DATABASE_proxy = Proxy()
@@ -63,6 +64,17 @@ class User(UserMixin, Model):
                 Relationship.to_user == self
             )
         )
+
+    def gravatar_url(self, size=80):
+        return 'http://www.gravatar.com/avatar/%s?d=identicon&s=%d' % \
+               (md5(self.email.strip().lower().encode('utf-8')).hexdigest(), size)
+
+    def display(self):
+        if self.is_admin:
+            return 'none'
+        else:
+            return 'inone'
+
     @classmethod
     def create_user(cls, username, email, password, admin=False):
         try:
@@ -74,6 +86,8 @@ class User(UserMixin, Model):
                     is_admin=admin)
         except IntegrityError:
             raise ValueError("User already exists")
+
+
 
 #Related name is what the rel model would call this model
 class Post(Model):

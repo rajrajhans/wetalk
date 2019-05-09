@@ -38,7 +38,7 @@ header{
   box-shadow: 0 0 25px 0 black;
 }
 
-.bodi{
+.bodi {
   margin-top: 100px;
   padding-top: 10px;
 }
@@ -93,6 +93,55 @@ header{
   border-radius: 10px 10px 0 0;
 }
 
-article{
+/* BEGIN POST STYLES */
 
+.user-info-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatar{
+  flex: 1 1 0;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  object-fit: cover;
+  margin: 14px 8px 1px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.username-and-time-container{
+  height: 40px;
+}
+
+.username{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.username a{
+  font-family: "Open Sans", Sans-Serif, serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 2px 0 0;
+  color: #000;
+}
+
+.time{
+  font-family: "Open Sans", Sans-Serif, serif;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  margin: auto;
+  padding-top: 4px;
+}
+
+.post{
+  font-family: "Open Sans", Sans-Serif, serif;
+  white-space: pre-wrap;
+  margin: auto 14px 14px;
+  font-size: 16px;
+  color: rgb(36, 36, 36);
 }

@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from flask_bcrypt import check_password_hash
 import models
 import forms
+from timeago import format
 
 
 app = Flask(__name__)
@@ -83,10 +84,15 @@ def post():
 @app.route('/home')
 def home():
     return render_template('homepage.html')
+
 @app.route('/')
 def index():
     stream= models.Post.select()
-    return render_template('stream.html', stream=stream)
+    return render_template('stream.html', stream=stream, format=format)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/stream')
 @app.route('/stream/<username>')
@@ -103,7 +109,7 @@ def stream(username=None, myprofile=None):
             user=current_user
     if username:
         template = 'user_stream.html'
-        return render_template(template, stream=stream, user=user)
+        return render_template(template, stream=stream, user=user, format=format)
 
 @app.route('/post/<int:post_id>')
 def view_post(post_id):
