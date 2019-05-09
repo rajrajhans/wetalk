@@ -1,2 +1,34 @@
 {% extends "layout.html" %}
-{% block content %} IT WORKS {% endblock %}
+{% block content %} <h1>Welcome to We-Talk!</h1>
+
+<p>We-Talk is a communication platform intended for team collaboration. </p>
+
+<h2>Objective of the project</h2>
+<p>The aim of the project was to develop a software based on Python illustrating it's application in Web Development and Database Management domains.</p>
+
+
+
+<h2>Technologies used</h2>
+<ul>
+    <li>Flask, an open source web development framework for Python.</li>
+    <li>Peewee, an open source Object Relational Mapper (ORM) made in Python. It supports SQLite, MySQL and PostgreSQL</li>
+    <li>PosgreSQL and SQLite, as database management systems.</li>
+    <li>Heroku, for deploying the webapp online.</li>
+    <li>Bootstrap, for front end user interface.</li>
+    <li>Git, as a version control system.</li>
+</ul>
+
+<h2>Database Schema</h2>
+<p>In the spirit of the popular web framework Django, peewee uses declarative model definitions. The idea is that you declare a model class for each table. The model class then defines one or more field attributes which correspond to the table’s columns. For this project, there are just three models:</p>
+<h3>User:</h3>
+<p>    Represents a user account and stores the username and password, an email address for generating avatars using gravatar, and a datetime field indicating when that account was created, and a boolean field containing whether the User is has admin privilege.</p>
+<h3>Relationship:</h3>
+<p>     This is a utility model that contains two foreign-keys to the User model and stores which users follow one another</p>
+<h3>Post:</h3>
+<p>     The Post model stores the text content of the post, when it was created, and who posted it (foreign key to User).</p>
+
+<img src="/static/img/relation.jpg">
+
+<p>     This web app has been deployed on Heroku. Originally, SQLite was selected as the database management system for this project due to it's convenience. However, Heroku does not support SQLite due to it's ephemeral file system. Therefore, PostgreSQL had to be added as an DBMS. So, instead of scrapping SQLite and switching to postgres, we added a snippet which would check for HEROKU in the config vars (os.environment) and if it exists, instantiate a Postgresql object in peewee, and if not, a SQLiteDatabase object. The username, password and database url for postgres are included in config vars in heroku. So, url-parse was used.</p>
+<p>  </p><p>  </p>
+{% endblock %}

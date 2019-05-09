@@ -12,9 +12,23 @@
                     <div class="username"><a href="{{ url_for('stream', username=post.user.username) }}">{{ post.user.username }} </a> <img style="width: 13px; height: 15px; margin-left: 5px; margin-top: 5px; display: {{ post.user.display() }};" src="https://s3.ap-south-1.amazonaws.com/dmu-prod/assets/app_icons/profile_verified.png"></div>
 
 
-
                 <time data-time="{{ post.timestamp }}" class="time" datetime="{{ format(post.timestamp) }}">{{ format(post.timestamp) }}</time>
         </div>
+
+
+    <div style="margin-right: 14px; padding-right: 2px; flex: 1 1 0%;">
+        {% if current_user.is_authenticated %}
+            {% if post.user != current_user %}
+                {% if not post.user in current_user.following() %}
+                    <a href="{{ url_for('follow', username=post.user.username) }}" class="btn bk-bs-btn-default">Follow</a>
+                {% else %}
+                    <a href="{{ url_for('unfollow', username=post.user.username) }}" class="btn btn-default btn-xs">Unfollow</a>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </div>
+
+
 
 </div>
 
@@ -23,7 +37,7 @@
         </div>
 
 
-        <a href="{{ url_for('post', post_id=post.id) }}" class="view">View</a>
+<div style="height: 5px; background-color: rgb(239, 239, 239);"></div>
 
     </article>
 {% endfor %}

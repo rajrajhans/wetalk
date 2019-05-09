@@ -73,7 +73,7 @@ class User(UserMixin, Model):
         if self.is_admin:
             return 'none'
         else:
-            return 'inone'
+            return 'inline-block'
 
     @classmethod
     def create_user(cls, username, email, password, admin=False):
