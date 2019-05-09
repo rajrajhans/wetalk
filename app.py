@@ -11,6 +11,7 @@ app.secret_key='wshofj90792jwfjw903u2m093840298.!rajrajhans!'
 login_manager=LoginManager()
 login_manager.init_app(app)
 login_manager.login_view='login'
+login_manager.anonymous_user = models.Anonymous
 
 @login_manager.user_loader
 def load_user(userid):

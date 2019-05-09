@@ -1,6 +1,6 @@
 from datetime import *
 from peewee import *
-from flask_login import UserMixin
+from flask_login import UserMixin, AnonymousUserMixin
 from flask_bcrypt import generate_password_hash
 import os
 
@@ -18,6 +18,10 @@ else:
 
 
 #UserMixin goes first, and then Model since User is essentially a Model class, and UserMixin just enhances it's functionality
+
+class Anonymous(AnonymousUserMixin):
+  def __init__(self):
+    self.username = 'Guest'
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
