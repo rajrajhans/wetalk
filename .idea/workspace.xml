@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3980d5e1-f0d6-431c-acdd-2d4fb37c68b0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social.db" beforeDir="false" afterPath="$PROJECT_DIR$/social.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon-power.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon-profile.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stream.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stream.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_stream.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_stream.html" afterDir="false" />
-    </list>
+    <list default="true" id="3980d5e1-f0d6-431c-acdd-2d4fb37c68b0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="31" column="444" selection-start-line="31" selection-start-column="444" selection-end-line="31" selection-end-column="444" />
+            <state>
+              <caret line="31" column="639" selection-start-line="31" selection-start-column="639" selection-end-line="31" selection-end-column="639" />
             </state>
           </provider>
         </entry>
@@ -380,7 +364,7 @@
       <workItem from="1557338365576" duration="13130000" />
       <workItem from="1557355406303" duration="902000" />
       <workItem from="1557382910629" duration="4330000" />
-      <workItem from="1557427509388" duration="17635000" />
+      <workItem from="1557427509388" duration="17939000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1555263198501</created>
@@ -407,13 +391,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95752000" />
+    <option name="totallyTimeSpent" value="96056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.15506808" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.15506808" />
       <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.14372164" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -427,7 +410,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.26350245" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.21276596" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.93780684" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.33060557" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.26350245" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -695,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="31" column="444" selection-start-line="31" selection-start-column="444" selection-end-line="31" selection-end-column="444" />
+        <state>
+          <caret line="31" column="639" selection-start-line="31" selection-start-column="639" selection-end-line="31" selection-end-column="639" />
         </state>
       </provider>
     </entry>
