@@ -100,6 +100,6 @@ class Relationship(Model):
 
 
 def initialize():
-    DATABASE_proxy.connect()
+    DATABASE_proxy.connection()
     DATABASE_proxy.create_tables([User, Post, Relationship], safe=True)
     DATABASE_proxy.close()
