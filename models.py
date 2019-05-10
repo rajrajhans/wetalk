@@ -70,10 +70,10 @@ class User(UserMixin, Model):
                (md5(self.email.strip().lower().encode('utf-8')).hexdigest(), size)
 
     def display(self):
-        if int(self.is_admin):
-            return 'none'
-        else:
+        if self.is_admin == 't':
             return 'inline-block'
+        else:
+            return 'none'
 
     @classmethod
     def create_user(cls, username, email, password, admin=False):
