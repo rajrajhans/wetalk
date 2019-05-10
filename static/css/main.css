@@ -214,3 +214,14 @@ footer {
 footer a {
   color:#fff;
 }
+
+.flash{
+  font-family: 'Raleway', sans-serif;
+  width:50%;
+  margin:  0 auto 0 auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  /*height: 80px;*/
+  font-size: 20px;
+}
