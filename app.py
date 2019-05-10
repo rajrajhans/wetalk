@@ -87,7 +87,8 @@ def home():
 
 @app.route('/')
 def index():
-    return render_template('homepage.html')
+    stream= models.Post.select()
+    return render_template('stream.html', stream=stream, format=format)
 
 @app.route('/about')
 def about():
