@@ -35,8 +35,9 @@
 
 
                     {% if current_user.is_authenticated %}
-                        <li> <a href="{{ url_for('logout') }}"> Log Out </a> </li>
                     <li> <a href="{{ url_for('post') }}"> New Post </a> </li>
+                        <li> <a href="{{ url_for('logout') }}"> Log Out </a> </li>
+
                     <li> <h4>Logged in as <span style="font-style: italic;">{{ current_user.username }}</span> </h4></li>
                     {% else %}
                         <li> <a href="{{ url_for('login') }}"> Log In </a> </li>
