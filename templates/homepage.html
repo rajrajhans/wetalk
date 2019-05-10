@@ -45,36 +45,5 @@
 
 Peewee provides a helper method Database.create_tables() which will resolve inter-model dependencies and call create_table() on each model, ensuring the tables are created in order.</p>
 
-<h2>Establishing a database connection</h2>
-<p>
-You may have noticed in the above model code that there is a class defined on the base model named Meta that sets the database attribute. Peewee allows every model to specify which database it uses. There are many Meta options you can specify which control the behavior of your model.
 
-This is a peewee idiom:
-<blockquote>
-DATABASE = 'tweepee.db'
-
-# Create a database instance that will manage the connection and
-# execute queries
-database = SqliteDatabase(DATABASE)
-
-# Create a base-class all our models will inherit, which defines
-# the database we'll be using.
-class BaseModel(Model):
-    class Meta:
-    database = database</blockquote></p>
-<p>
-When developing a web application, it’s common to open a connection when a request starts, and close it when the response is returned. You should always manage your connections explicitly. For instance, if you are using a connection pool, connections will only be recycled correctly if you call connect() and close().
-
-We will tell flask that during the request/response cycle we need to create a connection to the database. Flask provides some handy decorators to make this a snap:
-
-<blockquote>@app.before_request
-def before_request():
-    database.connect()
-
-@app.after_request
-def after_request(response):
-    database.close()
-    return response
-</blockquote>
-</p>
 {% endblock %}
