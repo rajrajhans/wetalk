@@ -30,5 +30,15 @@
 <img src="/static/img/relation.jpg">
 
 <p>     This web app has been deployed on Heroku. Originally, SQLite was selected as the database management system for this project due to it's convenience. However, Heroku does not support SQLite due to it's ephemeral file system. Therefore, PostgreSQL had to be added as an DBMS. So, instead of scrapping SQLite and switching to postgres, we added a snippet which would check for HEROKU in the config vars (os.environment) and if it exists, instantiate a Postgresql object in peewee, and if not, a SQLiteDatabase object. The username, password and database url for postgres are included in config vars in heroku. So, url-parse was used.</p>
-<p>  </p><p>  </p>
+
+<h2>Creating tables</h2>
+<p>In order to start using the models, its necessary to create the tables. This is a one-time operation and can be done quickly using the interactive interpreter. We can create a small helper function to accomplish this:
+
+<blockquote>def create_tables():
+    with database:
+    database.create_tables([User, Relationship, Message])</blockquote>
+</p>
+<p>Every model has a create_table() classmethod which runs a SQL CREATE TABLE statement in the database. This method will create the table, including all columns, foreign-key constraints, indexes, and sequences. Usually this is something you’ll only do once, whenever a new model is added.
+
+Peewee provides a helper method Database.create_tables() which will resolve inter-model dependencies and call create_table() on each model, ensuring the tables are created in order.</p>
 {% endblock %}

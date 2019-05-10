@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="form-title">Log In to We-Talk</div>
-<form method="POST" action="" >
+<form method="POST" action="" class="form" >
     {{ form.hidden_tag() }}
     {% for field in form %}
         {{render_field(field)}}

@@ -11,31 +11,19 @@
     </div>
     <div class="grid-50">
         <div class="grid-33">
-            <h5>Posts</h5>
-            <p>{{ user.posts.count()}}</p>
+            <p style="font-family: Raleway,serif; font-size: 16px;">Posts</p>
+            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.posts.count()}}</p>
         </div>
 
         <div class="grid-33">
-            <h5>Followers</h5>
-            <p>{{ user.followers().count() }}</p>
+            <p style="font-family: Raleway,serif; font-size: 16px;">Followers</p>
+            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.followers().count() }}</p>
         </div>
 
         <div class="grid-33">
-            <h5>Following</h5>
-            <p>{{ user.following().count() }}</p>
+            <p style="font-family: Raleway,serif; font-size: 16px;">Following</p>
+            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.following().count() }}</p>
         </div>
-    </div>
-    <div class="grid-25">
-        <!-- Buttons-->
-        {% if current_user.is_authenticated %}
-            {% if user != current_user %}
-                {% if not user in current_user.following() %}
-                    <a href="{{ url_for('follow', username=user.username) }}" class="small">Follow</a>
-                {% else %}
-                    <a href="{{ url_for('unfollow', username=user.username) }}" class="small">Unfollow</a>
-                {% endif %}
-            {% endif %}
-        {% endif %}
     </div>
 </div>
 
