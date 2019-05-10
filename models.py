@@ -70,7 +70,7 @@ class User(UserMixin, Model):
                (md5(self.email.strip().lower().encode('utf-8')).hexdigest(), size)
 
     def display(self):
-        if self.is_admin == t:
+        if self.is_admin == True:
             return 'inline-block'
         else:
             return 'none'
