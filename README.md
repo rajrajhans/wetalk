@@ -1,5 +1,6 @@
 # wetalk
 Wetalk is a social network built from ground up mainly using Python's Flask framework. 
+The project is deployed live on [wetalk.rajrajhans.com](http://wetalk.rajrajhans.com/home)
 
 ## Aim of the project
 The aim of the project was to develop a software based on Python illustrating it's application in Web Development and Database Management domains.
