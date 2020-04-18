@@ -81,6 +81,7 @@ def post():
         flash("Message Posted! Thanks", "success")
         return redirect(url_for('index'))
     return render_template('post.html', form=forme)
+
 @app.route('/home')
 def home():
     return render_template('homepage.html')

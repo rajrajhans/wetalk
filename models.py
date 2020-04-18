@@ -9,20 +9,23 @@ DATABASE_proxy = Proxy()
 
 if 'HEROKU' in os.environ:
     import urllib.parse, psycopg2
+
     urllib.parse.uses_netloc.append('postgres')
     url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
-    DATABASE = PostgresqlDatabase(database=url.path[1:], user=url.username, password=url.password, host=url.hostname, port=url.port)
+    DATABASE = PostgresqlDatabase(database=url.path[1:], user=url.username, password=url.password, host=url.hostname,
+                                  port=url.port)
     DATABASE_proxy.initialize(DATABASE)
 else:
     DATABASE = SqliteDatabase('social.db')
     DATABASE_proxy.initialize(DATABASE)
 
 
-#UserMixin goes first, and then Model since User is essentially a Model class, and UserMixin just enhances it's functionality
+# UserMixin goes first, and then Model since User is essentially a Model class, and UserMixin just enhances it's functionality
 
 class Anonymous(AnonymousUserMixin):
-  def __init__(self):
-    self.username = 'Guest'
+    def __init__(self):
+        self.username = 'Guest'
+
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
@@ -44,6 +47,9 @@ class User(UserMixin, Model):
             (Post.user == self) #OR my own posts
 
         )
+
+    # a join on to_user removes the users who are not following any users from the result table
+    # a join on from_user removes the users who are not following anyone from the list
 
     def following(self):
         """The users that we are following."""
@@ -88,8 +94,7 @@ class User(UserMixin, Model):
             raise ValueError("User already exists")
 
 
-
-#Related name is what the rel model would call this model
+# Related name is what the rel model would call this model
 class Post(Model):
     timestamp = DateTimeField(default=datetime.now)
     user = ForeignKeyField(
@@ -98,9 +103,20 @@ class Post(Model):
     )
     content = TextField()
 
+    def getLikes(self):
+        """returns list of users who liked the post"""
+        return (
+            Post.select().join(
+                Likes, on=Likes.post_id
+            ).where(
+                Likes.post_id == self
+            )
+        )
+
     class Meta:
         database = DATABASE_proxy
         order_by = ('-timestamp',)
+
 
 class Relationship(Model):
     from_user = ForeignKeyField(User, related_name='relationships')
@@ -111,6 +127,14 @@ class Relationship(Model):
         indexes = (
             ((('from_user', 'to_user'), True),)
         )
+
+
+class Likes(Model):
+    user_id = ForeignKeyField(User, related_name='user_likes', null=True)
+    post_id = ForeignKeyField(Post, related_name='post_likes', null=True)
+
+    class Meta:
+        database = DATABASE_proxy
 
 
 def initialize():

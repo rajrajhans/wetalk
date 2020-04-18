@@ -62,6 +62,7 @@ header li:last-child{
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  min-height: 100vh;
 }
 
 .myform{
@@ -209,7 +210,7 @@ h4 {
 footer {
   background-color:#263238;
   color:#fff;
-    margin-top: 50px;
+  margin-top: 50px;
 }
 footer a {
   color:#fff;
