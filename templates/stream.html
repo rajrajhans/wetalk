@@ -5,17 +5,19 @@
     <article>
 
 <div class="user-info-container">
-         <div>
+
+<!--gravatar display-->
+    <div>
              <img src="{{ post.user.gravatar_url() }}" class="avatar" />
          </div>
-        <div class="username-and-time-container">
+<!--username and time-->
+    <div class="username-and-time-container">
                     <div class="username"><a href="{{ url_for('stream', username=post.user.username) }}">{{ post.user.username }} </a> <img style="width: 13px; height: 15px; margin-left: 5px; margin-top: 5px; display: {{ post.user.display() }};" src="https://s3.ap-south-1.amazonaws.com/dmu-prod/assets/app_icons/profile_verified.png"></div>
 
 
                 <time data-time="{{ post.timestamp }}" class="time" datetime="{{ format(post.timestamp) }}">{{ format(post.timestamp) }}</time>
         </div>
-
-
+<!--follow/unfollow buttons-->
     <div style="margin-right: 14px; padding-right: 2px; flex: 1 1 0%;">
         {% if current_user.is_authenticated %}
             {% if post.user != current_user %}
@@ -28,17 +30,13 @@
         {% endif %}
     </div>
 
-
-
 </div>
 
-        <div class="post">
-            {{ post.content }}
-        </div>
+    <div class="post">
+        {{ post.content }}
+    </div>
+    <div style="height: 5px; background-color: rgb(239, 239, 239);"></div>
 
-
-<div style="height: 5px; background-color: rgb(239, 239, 239);"></div>
-
-    </article>
+</article>
 {% endfor %}
 {% endblock %}
