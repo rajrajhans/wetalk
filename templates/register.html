@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="form-title">Sign Up for We-Talk</div>
+<div class="grayContainer">
 <form method="POST" action="" class="form">
     {{ form.hidden_tag() }}
     {% for field in form %}
@@ -10,4 +11,5 @@
     {% endfor %}
     <div class="mybutton_container"><button type="submit" id="submit" class="mybutton">Sign Up!</button></div>
 </form>
+</div>
 {% endblock %}

@@ -169,4 +169,27 @@ footer a {
 input{
   background-color: hsl(0, 0%, 14%) !important;
   border: hsl(0, 0%, 10%) !important;
+  color: #afafaf !important;
+}
+
+textarea{
+  background-color: hsl(0, 0%, 14%) !important;
+  border: hsl(0, 0%, 10%) !important;
+  color: #afafaf !important;
+  width: 80%!important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .form-title{
+    width: 100%;
+  }
+  .grayContainer{
+    width: 100%;
+  }
+  .form-control{
+    width: 80%;
+  }
+  textarea{
+    width: 80%;
+  }
 }

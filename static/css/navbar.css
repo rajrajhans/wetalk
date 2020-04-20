@@ -1,6 +1,6 @@
 .header{
     background: #000000;
-    font-family: 'Didact Gothic';
+    font-family: 'Didact Gothic', sans-serif;
     font-size: 20px;
 }
 
@@ -29,4 +29,13 @@
      background: #006400;
      padding-left: 0px;
      border-radius: 25px;
+    -webkit-transition: ease-out 0.5s;
+    -moz-transition: ease-out 0.5s;
+    -ms-transition: ease-out 0.5s;
+    -o-transition: ease-out 0.5s;
+    transition: ease-out 0.5s;
+}
+
+.login-name:hover{
+     background: #009700;
 }
