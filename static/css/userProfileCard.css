@@ -1,0 +1,91 @@
+:root{
+    --subtle : #afafaf;
+}
+
+.profileInfo{
+    display: grid;
+    grid-template-columns: 75px 2fr 1fr 1fr 1fr;
+    grid-template-areas:
+            "profileAvatar profileName profilePostsCountText profileFollowersCountText profileFollowingCountText"
+            "profileAvatar profileUsernameBig profilePostsCount profileFollowersCount profileFollowingCount";
+    margin-bottom: 10px;
+}
+
+#profileAvatar{
+    grid-area: profileAvatar;
+    border-radius:100px;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+#profileName{
+    grid-area: profileName;
+    font-size: 25px;
+    color: #fff;
+}
+
+#profileUsernameBig{
+    grid-area: profileUsernameBig;
+    color:rgb(110, 118, 125);
+    font-size: 20px;
+}
+
+#profilePostsCountText{
+    grid-area: profilePostsCountText;
+    color: var(--subtle);
+    margin:auto;
+}
+
+#profilePostsCount{
+    grid-area: profilePostsCount;
+    color: var(--subtle);
+    margin:auto;
+}
+
+#profileFollowersCountText{
+    grid-area: profileFollowersCountText;
+    color: var(--subtle);
+    margin:auto;
+}
+
+#profileFollowersCount{
+    grid-area: profileFollowersCount;
+    color: var(--subtle);
+    margin:auto;
+}
+
+#profileFollowingCountText{
+    grid-area: profileFollowingCountText;
+    color: var(--subtle);
+    margin:auto;
+}
+
+#profileFollowingCount{
+    grid-area: profileFollowingCount;
+    color: var(--subtle);
+    margin:auto;
+}
+
+@media screen and (max-width:430px){
+    .profileInfo{
+        grid-template-columns: 75px 2fr 1fr;
+        grid-template-areas:
+                "profileAvatar profileName profileName"
+                "profileAvatar profileUsernameBig profileUsernameBig"
+                "profilePostsCountText profileFollowersCountText profileFollowingCountText"
+                "profilePostsCount profileFollowersCount profileFollowingCount";
+    }
+
+    #profilePostsCountText{
+        margin-top: 20px;
+    }
+
+    #profileFollowersCountText{
+        margin-top: 20px;
+    }
+
+    #profileFollowingCountText{
+        margin-top: 20px;
+    }
+}

@@ -38,14 +38,15 @@ def after_request(response):
 def register():
     form=forms.RegisterForm()
     if form.validate_on_submit():
-        flash('Registration successful. You can log in now.', 'success')
+        flash('You have successfully registered!', 'success')
         models.User.create_user(
             username=form.username.data,
             name=form.name.data,
             email=form.email.data,
             password=form.password.data
         )
-        return redirect(url_for('login'))
+
+        return redirect(url_for('index'))
     return render_template('register.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -79,7 +80,7 @@ def post():
     if forme.validate_on_submit():
         models.Post.create(user=g.user._get_current_object(),
                            content=forme.content.data.strip())
-        flash("Message Posted! Thanks", "success")
+        flash("Message Posted!", "success")
         return redirect(url_for('index'))
     return render_template('post.html', form=forme)
 
@@ -140,7 +141,7 @@ def follow(username):
         except models.IntegrityError:
             pass
         else:
-            flash("You're now following {}!".format(to_user.username), "primary")
+            flash("You're now following @{}!".format(to_user.username), "primary")
     return redirect(url_for('index'))
 
 @app.route('/unfollow/<username>')
@@ -159,8 +160,8 @@ def unfollow(username):
         except models.IntegrityError:
             pass
         else:
-            flash("You've unfollowed {}!".format(to_user.username), "primary")
-    return redirect(url_for('stream', username=to_user.username))
+            flash("You've unfollowed @{}!".format(to_user.username), "primary")
+    return redirect(url_for('index'))
 
 @app.errorhandler(404)
 def not_found(error):
@@ -169,4 +170,4 @@ def not_found(error):
 
 if __name__=='__main__':
     models.initialize()
-    app.run()
+    app.run(debug=True)

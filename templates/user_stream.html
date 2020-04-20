@@ -2,9 +2,21 @@
 
 {% block content %}
 <section class="profileInfo">
+    <img id="profileAvatar"src="{{ user.gravatar_url() }}" alt=""  height="56px"  width="56px">
+
+    <span id="profileName">{{ user.name }}</span>
+    <span id="profileUsernameBig">@{{ user.username }}</span>
+
+    <span id="profilePostsCountText">Posts </span>
+    <span id="profilePostsCount">{{ user.posts.count() }}</span>
+
+    <span id="profileFollowersCountText">Followers </span>
+    <span id="profileFollowersCount">{{ user.followers().count() }}</span>
+
+    <span id="profileFollowingCountText">Following </span>
+    <span id="profileFollowingCount">{{ user.following().count() }}</span>
 
 </section>
 
-Posts by this user -
 {{ super() }}
 {% endblock %}

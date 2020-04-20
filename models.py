@@ -1,6 +1,6 @@
 from datetime import *
 from peewee import *
-from flask_login import UserMixin, AnonymousUserMixin
+from flask_login import UserMixin, AnonymousUserMixin, login_user
 from flask_bcrypt import generate_password_hash
 from hashlib import md5
 import os
@@ -86,7 +86,7 @@ class User(UserMixin, Model):
     def create_user(cls, username, name, email, password, admin=False):
         try:
             with DATABASE.transaction():
-                cls.create(
+                user = cls.create(
                     username=username,
                     email=email,
                     name=name,
@@ -94,6 +94,8 @@ class User(UserMixin, Model):
                     is_admin=admin)
         except IntegrityError:
             raise ValueError("User already exists")
+        else:
+            login_user(user)
 
 
 # Related name is what the rel model would call this model

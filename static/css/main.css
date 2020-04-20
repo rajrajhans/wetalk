@@ -160,6 +160,16 @@ textarea{
   width: 80%!important;
 }
 
+.notification{
+  color: #afafaf;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.error{
+  color: #cb1d57;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .form-title{
     width: 100%;

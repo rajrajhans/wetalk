@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<img src="/static/img/bg.jpg" style="margin-left: -15px;margin-top: -10px; ">
-
+<div class="grayContainer" style="color: #afafaf; width: 80%; padding: 25px;">
 <h1>Welcome to We-Talk!</h1>
 
 <p>We-Talk is a communication platform intended for team collaboration. </p>
@@ -44,6 +43,6 @@
 <p>Every model has a create_table() classmethod which runs a SQL CREATE TABLE statement in the database. This method will create the table, including all columns, foreign-key constraints, indexes, and sequences. Usually this is something you’ll only do once, whenever a new model is added.
 
 Peewee provides a helper method Database.create_tables() which will resolve inter-model dependencies and call create_table() on each model, ensuring the tables are created in order.</p>
-
+</div>
 
 {% endblock %}
