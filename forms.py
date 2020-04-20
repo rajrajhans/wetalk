@@ -59,4 +59,4 @@ class LoginForm(Form):
     )
 
 class PostForm(Form):
-    content = TextAreaField("What is up?", validators=[DataRequired()])
+    content = TextAreaField("What happening?", validators=[DataRequired()])
