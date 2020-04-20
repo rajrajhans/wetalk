@@ -120,28 +120,6 @@ h4 {
     color: white;
 }
 
-/*PRIVATE*/
-.grid-100{
-    display: inline-block;
-  float: left;
-  width: 100%;
-}
-.grid-50{
-    display: inline-block;
-  float: left;
-  width: 49%;
-}
-.grid-33{
-    display: inline-block;
-  float: left;
-  width: 33%;
-}
-.grid-25{
-    display: inline-block;
-  float: right;
-  width: 20%;
-  margin: 0 2.25%;
-}
 footer {
   background-color:#263238;
   color:#fff;
@@ -164,6 +142,9 @@ footer a {
 
 .alerts{
   padding:10px;
+  max-width: 50%;
+  margin: auto;
+  margin-bottom: 10px;
 }
 
 input{

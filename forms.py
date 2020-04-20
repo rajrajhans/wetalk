@@ -10,6 +10,12 @@ def email_exists(form, field):
     if User.select().where(User.email==field.data).exists():
         raise ValidationError("User already exists")
 class RegisterForm(Form):
+    name= StringField(
+        'Name',
+        validators=[
+            DataRequired()
+        ]
+    )
     username= StringField(
         'Username',
         validators=[
@@ -59,4 +65,4 @@ class LoginForm(Form):
     )
 
 class PostForm(Form):
-    content = TextAreaField("What happening?", validators=[DataRequired()])
+    content = TextAreaField("What's happening?", validators=[DataRequired()])

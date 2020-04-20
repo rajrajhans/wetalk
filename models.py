@@ -16,7 +16,7 @@ if 'HEROKU' in os.environ:
                                   port=url.port)
     DATABASE_proxy.initialize(DATABASE)
 else:
-    DATABASE = SqliteDatabase('social.db')
+    DATABASE = SqliteDatabase('social1.db')
     DATABASE_proxy.initialize(DATABASE)
 
 
@@ -29,6 +29,7 @@ class Anonymous(AnonymousUserMixin):
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
+    name = CharField(max_length=30)
     email = CharField(unique=True)
     password = CharField(max_length=100)
     joined_at = DateTimeField(default=datetime.now)
@@ -82,12 +83,13 @@ class User(UserMixin, Model):
             return 'none'
 
     @classmethod
-    def create_user(cls, username, email, password, admin=False):
+    def create_user(cls, username, name, email, password, admin=False):
         try:
             with DATABASE.transaction():
                 cls.create(
                     username=username,
                     email=email,
+                    name=name,
                     password=generate_password_hash(password),
                     is_admin=admin)
         except IntegrityError:

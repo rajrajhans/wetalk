@@ -30,15 +30,23 @@
 
 .post-header {
   display: grid;
-  grid-template-columns: 0.5fr 1fr 5fr;
+  grid-template-columns: 0.5fr 1fr 1fr 4fr;
   grid-template-areas:
-          "userAvatar profileLink followBtn"
-          "userAvatar postTime followBtn";
+          "userAvatar profileLink profileUsername followBtn"
+          "userAvatar postTime postTime followBtn";
   font-size:14px;
 }
 
 #userAvatar{
   grid-area: userAvatar;
+}
+
+#profileUsername{
+  grid-area: profileUsername;
+  color:rgb(110, 118, 125);
+  font-weight:normal;
+  margin-left: -5px;
+  font-size : 16px;
 }
 
 #followBtn{

@@ -41,6 +41,7 @@ def register():
         flash('Registration successful. You can log in now.', 'success')
         models.User.create_user(
             username=form.username.data,
+            name=form.name.data,
             email=form.email.data,
             password=form.password.data
         )

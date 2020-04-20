@@ -1,32 +1,10 @@
 {% extends "stream.html" %}
 
 {% block content %}
-<div class="row">
-    <div>
-            <img src="{{ user.gravatar_url() }}" class="avatar-user_stream" />
-    </div>
-    <div class="grid-25">
-        <h1>{{ user.username }}</h1>
+<section class="profileInfo">
 
-    </div>
-    <div class="grid-50">
-        <div class="grid-33">
-            <p style="font-family: Raleway,serif; font-size: 16px;">Posts</p>
-            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.posts.count()}}</p>
-        </div>
+</section>
 
-        <div class="grid-33">
-            <p style="font-family: Raleway,serif; font-size: 16px;">Followers</p>
-            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.followers().count() }}</p>
-        </div>
-
-        <div class="grid-33">
-            <p style="font-family: Raleway,serif; font-size: 16px;">Following</p>
-            <p style="font-family: Raleway,serif; font-size: 20px;">{{ user.following().count() }}</p>
-        </div>
-    </div>
-</div>
 Posts by this user -
-
 {{ super() }}
 {% endblock %}
