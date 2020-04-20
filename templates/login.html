@@ -2,12 +2,16 @@
 {% from 'macros.html' import render_field %}
 
 {% block content %}
-<div class="form-title">Log In to We-Talk</div>
-<form method="POST" action="" class="form" >
-    {{ form.hidden_tag() }}
-    {% for field in form %}
-        {{render_field(field)}}
-    {% endfor %}
-    <div class="mybutton_container"><button type="submit" id="submit" class="mybutton">Log In</button></div>
-</form>
+<div>
+    <div class="form-title">Log In to We-Talk</div>
+    <div class="grayContainer">
+    <form method="POST" action="" class="form" >
+        {{ form.hidden_tag() }}
+        {% for field in form %}
+            {{render_field(field)}}
+        {% endfor %}
+        <div class="mybutton_container"><button type="submit" id="submit" class="mybutton">Submit</button></div>
+    </form>
+    </div>
+</div>
 {% endblock %}

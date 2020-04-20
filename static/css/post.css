@@ -1,6 +1,6 @@
 :root{
-  --post-bg:#fff;
-  --text:#000;
+  --post-bg:#282a36;
+  --text:#fff;
 }
 
 .avator {
@@ -17,14 +17,14 @@
   margin-top: 10px;
   border-radius:10px;
   padding: 30px;
-  border-bottom: 1px solid #e6ecf0;
-  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
   transition: all .2s ease-in-out;
 }
 
 .post-wrap:hover{
-  background-color: #f2f2f2;
+  background-color: #3d3f4a;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -76,6 +76,7 @@
   font-weight:normal;
   margin-top: 20px;
   font-size: 20px;
+  color: #fff;
 }
 
 .post-img-wrap {

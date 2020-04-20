@@ -54,14 +54,14 @@ def login():
         try:
             user = models.User.get(models.User.email==form.email.data)
         except models.DoesNotExist:
-            flash("Email or password does not match", "error")
+            flash("Email or password does not match", "danger")
         else:
             if check_password_hash(user.password, form.password.data):
                 login_user(user)
                 flash("You have been logged in!", "success")
                 return redirect(url_for('index'))
             else:
-                flash("Email or password does not match", "error")
+                flash("Email or password does not match", "danger")
     return render_template('login.html', form=form)
 
 @app.route('/logout')
@@ -139,7 +139,7 @@ def follow(username):
         except models.IntegrityError:
             pass
         else:
-            flash("You're now following {}!".format(to_user.username), "success")
+            flash("You're now following {}!".format(to_user.username), "primary")
     return redirect(url_for('index'))
 
 @app.route('/unfollow/<username>')
@@ -158,7 +158,7 @@ def unfollow(username):
         except models.IntegrityError:
             pass
         else:
-            flash("You've unfollowed {}!".format(to_user.username), "success")
+            flash("You've unfollowed {}!".format(to_user.username), "primary")
     return redirect(url_for('stream', username=to_user.username))
 
 @app.errorhandler(404)
