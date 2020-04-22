@@ -84,37 +84,6 @@
     </header>
 <body>
 <div class="container">
-    <!--<header>
-        <div class="logo">
-            <a href="{{ url_for('home') }}"> <img src="/static/img/logo.png"></a>
-        </div>
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li> <a href="{{ url_for('home') }}"> Home </a> </li>
-                    {% if current_user.is_authenticated %}
-                    <li> <a href="{{ url_for('index') }}"> Public Feed </a> </li>
-
-                    <li> <a href="{{ url_for('stream', username=current_user.username) }}"> Private Feed </a> </li>
-                    {% else %}
-                    <li> <a href="{{ url_for('index') }}"> Public Feed </a> </li>
-                    {% endif %}
-
-
-                    {% if current_user.is_authenticated %}
-                    <li> <a href="{{ url_for('post') }}"> New Post </a> </li>
-                        <li> <a href="{{ url_for('logout') }}"> Log Out </a> </li>
-
-                    <li> <h4>Logged in as <span style="font-style: italic;">{{ current_user.username }}</span> </h4></li>
-                    {% else %}
-                        <li> <a href="{{ url_for('login') }}"> Log In </a> </li>
-                        <li> <a href="{{ url_for('register') }}"> Register </a> </li>
-
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>-->
 
     <div class="bodi">
     <!-- Flash messages -->

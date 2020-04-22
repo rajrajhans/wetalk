@@ -42,9 +42,12 @@
         <div class="post-body">
           <p>{{ post.content }}</p>
       </div>
-<!--      <div class="post-img-wrap">
-      <img src="#" alt="Image, if exists, will go here" class="post-img">
-      </div>-->
+
+        {% if post.imageThere == 1 %}
+        <div class="post-img-wrap">
+            <img src="/img/{{post.id}}" alt="Image, if exists, will go here" class="post-img">
+      </div>
+        {% endif %}
     </div>
 </article>
 
