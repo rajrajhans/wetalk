@@ -120,10 +120,18 @@ h4 {
     color: white;
 }
 
+.footer-copyright{
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 20px;
+  padding-bottom: 1.5rem;
+}
+
+
 footer {
   background-color:#263238;
   color:#fff;
   margin-top: 50px;
+  padding-bottom: 30px;
 }
 footer a {
   color:#fff;

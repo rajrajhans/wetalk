@@ -114,23 +114,42 @@
   color:white;
   font-family: 'Didact Gothic', sans-serif;
   display: grid;
-  grid-template-columns: 90px 10px;
+  grid-template-columns: 100px 10px;
   grid-template-areas: "likeButton likeCount";
 }
 
 #likeButton{
   grid-area: likeButton;
   margin-right: 8px;
+  color: var(--brand)
 }
 
 #likeCount{
   grid-area: likeCount;
 }
 
-.footer-copyright{
-  font-family: 'Didact Gothic', sans-serif;
-  font-size: 20px;
-  padding-bottom: 1.5rem;
+.likeUnlikeButtonLink{
+  color: var(--brand);
+  background: #DCDCDC;
+  border-radius: 25px;
+  padding: 10px;
+  transition: all .2s ease-in-out;
+}
+
+.likeUnlikeButtonLink:hover{
+  background: white;
+  border-radius: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.likeUnlikeButtonLink:link{
+  text-decoration: none;
+}
+
+#likeButtonLink{
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media screen and (max-width:430px){

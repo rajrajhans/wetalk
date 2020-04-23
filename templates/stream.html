@@ -49,11 +49,17 @@
 
         {% if current_user.is_authenticated %}
         <div class="reactionsWrapper">
-            <div id="likeButton">
+            <div id="likeButton" >
                 {% if current_user.hasUserLiked(post.id) %}
-                    <a href="/unlike/{{post.id}}">Unlike Post</a>
+                    <a href="/unlike/{{post.id}}" class="likeUnlikeButtonLink">
+                        <span class="fa fa-thumbs-up"></span>
+                        Unlike
+                    </a>
                 {% else %}
-                    <a href="/like/{{post.id}}">Like Post</a>
+                    <a href="/like/{{post.id}}" class="likeUnlikeButtonLink" id="likeButtonLink">
+                        <span class="fa fa-thumbs-o-up"></span>
+                        Like
+                    </a>
                 {% endif %}
 
             </div>
