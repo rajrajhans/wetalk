@@ -81,6 +81,19 @@ class User(UserMixin, Model):
         else:
             return 'none'
 
+    def hasUserLiked(self, post_id):
+        query = Post.select().join(
+            Likes, on=Likes.post_id
+        ).where(
+            Likes.user_id == self,
+            Likes.post_id == post_id
+        )
+        try:
+            ret = query[0].id
+            return 1
+        except:
+            return 0
+
     @classmethod
     def create_user(cls, username, name, email, password, admin=False):
         try:

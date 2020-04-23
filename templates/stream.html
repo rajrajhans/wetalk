@@ -44,11 +44,29 @@
         {% if post.imageThere == 1 %}
         <div class="post-img-wrap">
             <img src="/img/{{post.id}}" alt="Image, if exists, will go here" class="post-img">
-      </div>
+        </div>
         {% endif %}
 
-            <a href="/like/{{post.id}}">Like Post</a>
-            {{post.numLikes}}
+        {% if current_user.is_authenticated %}
+        <div class="reactionsWrapper">
+            <div id="likeButton">
+                {% if current_user.hasUserLiked(post.id) %}
+                    <a href="/unlike/{{post.id}}">Unlike Post</a>
+                {% else %}
+                    <a href="/like/{{post.id}}">Like Post</a>
+                {% endif %}
+
+            </div>
+
+            <div id="likeCount">
+                {{post.numLikes}}
+            </div>
+        </div>
+        {% else %}
+            <div id="likeCountLoggedOut">
+                {{post.numLikes}}
+            </div>
+        {% endif %}
     </div>
 </article>
 

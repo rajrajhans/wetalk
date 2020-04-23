@@ -104,6 +104,35 @@
   height: 48px !important;
 }
 
+#likeCountLoggedOut{
+  color:white;
+  font-family: 'Didact Gothic', sans-serif;
+  margin-left: 10px;
+}
+
+.reactionsWrapper{
+  color:white;
+  font-family: 'Didact Gothic', sans-serif;
+  display: grid;
+  grid-template-columns: 90px 10px;
+  grid-template-areas: "likeButton likeCount";
+}
+
+#likeButton{
+  grid-area: likeButton;
+  margin-right: 8px;
+}
+
+#likeCount{
+  grid-area: likeCount;
+}
+
+.footer-copyright{
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 20px;
+  padding-bottom: 1.5rem;
+}
+
 @media screen and (max-width:430px){
   .post-header {
    grid-template-columns: 0.5fr 1fr;
@@ -117,5 +146,13 @@
   .post-img-wrap {
     padding-left: 0;
   }
-
+  .post-img{
+    width: 80%;
+  }
+  .reactionsWrapper{
+    margin-top: 20px;
+  }
+  #followBtn{
+    margin-left: 10px;
+  }
 }
