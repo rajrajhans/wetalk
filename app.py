@@ -170,7 +170,7 @@ def like_post(post_id):
         models.Post.id == post.id
     ).execute()
 
-    return redirect(url_for('index'))\
+    return redirect(url_for('index'))
 
 @app.route('/unlike/<int:post_id>')
 @login_required

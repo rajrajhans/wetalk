@@ -51,12 +51,15 @@
         <div class="reactionsWrapper">
             <div id="likeButton" >
                 {% if current_user.hasUserLiked(post.id) %}
-                    <a href="/unlike/{{post.id}}" class="likeUnlikeButtonLink">
+                    <a href="/unlike/{{post.id}}"
+                       class="likeUnlikeButtonLink"
+                       id="unLikeButtonLink"
+                       data-id="{{post.id}}">
                         <span class="fa fa-thumbs-up"></span>
                         Unlike
                     </a>
                 {% else %}
-                    <a href="/like/{{post.id}}" class="likeUnlikeButtonLink" id="likeButtonLink">
+                    <a href="/like/{{post.id}}" class="likeUnlikeButtonLink" id="likeButtonLink" data-id="{{post.id}}">
                         <span class="fa fa-thumbs-o-up"></span>
                         Like
                     </a>
@@ -65,7 +68,7 @@
             </div>
 
             <div id="likeCount">
-                {{post.numLikes}}
+                {{post.numLikes}} Likes
             </div>
         </div>
         {% else %}
@@ -74,6 +77,18 @@
             </div>
         {% endif %}
     </div>
+    <script>
+        $(document).ready(function(){
+            //when user clicks on like
+            $("#likeButtonLink").click(function(){
+                const postid = $(this).data('id');
+
+                $.ajax({
+                    url: '/like/${this.postid}'
+                })
+            })
+        })
+      </script>
 </article>
 
 {% endfor %}

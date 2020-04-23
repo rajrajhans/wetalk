@@ -24,7 +24,7 @@
 }
 
 .post-wrap:hover{
-  background-color: #3d3f4a;
+  background-color: #34363f;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -89,9 +89,6 @@
   color: #fff;
 }
 
-.post-img-wrap {
-  padding-left: 60px;
-}
 .post-img{
   display: block;
   margin-left: auto;
@@ -114,7 +111,7 @@
   color:white;
   font-family: 'Didact Gothic', sans-serif;
   display: grid;
-  grid-template-columns: 100px 10px;
+  grid-template-columns: 100px 50px;
   grid-template-areas: "likeButton likeCount";
 }
 
@@ -137,10 +134,11 @@
 }
 
 .likeUnlikeButtonLink:hover{
-  background: white;
+  background: var(--brand);
+  color: white;
   border-radius: 25px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 11px;
+  padding-bottom: 11px;
 }
 
 .likeUnlikeButtonLink:link{
