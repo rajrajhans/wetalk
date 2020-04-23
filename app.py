@@ -26,7 +26,7 @@ def load_user(userid):
 def before_request():
     # connect to the database
     g.db = models.DATABASE_proxy
-    g.db.connect()
+    g.db.get_conn()
     g.user = current_user
 
 
