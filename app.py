@@ -84,12 +84,12 @@ def logout():
 def post():
     forme = forms.PostForm()
     if forme.validate_on_submit():
-        if forme.image.data.filename:   # Image is present
+        if forme.image.data.filename:  # Image is present
             models.Post.create(user=g.user._get_current_object(),
                                content=forme.content.data.strip(),
                                image=forme.image.data.read(),
                                imageThere=1)
-        else:   # No image uploaded
+        else:  # No image uploaded
             models.Post.create(user=g.user._get_current_object(),
                                content=forme.content.data.strip())
 
@@ -151,6 +151,45 @@ def view_post(post_id):
         abort(0)
     return render_template('stream.html', stream=posts)
 
+
+@app.route('/like/<int:post_id>')
+@login_required
+def like_post(post_id):
+    posts = models.Post.select().where(models.Post.id == post_id)
+    post = posts[0]
+    numberOfLikes = post.numLikes
+
+    models.Likes.create(
+        user_id=g.user._get_current_object(),
+        post_id=post
+    )
+
+    models.Post.update(
+        numLikes=numberOfLikes + 1
+    ).where(
+        models.Post.id == post.id
+    ).execute()
+
+    return redirect(url_for('index'))\
+
+@app.route('/unlike/<int:post_id>')
+@login_required
+def unlike_post(post_id):
+    posts = models.Post.select().where(models.Post.id == post_id)
+    post = posts[0]
+    numberOfLikes = post.numLikes
+
+    models.Likes.get(
+        user_id=g.user._get_current_object(),
+        post_id=post
+    ).delete_instance()
+
+    models.Post.update(
+        numLikes=numberOfLikes - 1
+    ).where(
+        models.Post.id == post.id
+    ).execute()
+    return redirect(url_for('index'))
 
 @app.route('/follow/<username>')
 @login_required

@@ -51,11 +51,13 @@
 
 #followBtn{
   grid-area: followBtn;
+
 }
 
 #followBtn a{
-  color: var(--brand) !important;
+  color: white !important;
   font-weight:normal !important;
+  border-color: var(--brand);
   font-size: 15px;
   margin-left: 5px;
 }
