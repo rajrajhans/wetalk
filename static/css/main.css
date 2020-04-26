@@ -50,6 +50,18 @@ body{
   display: inline-block;
 }
 
+.myCommentButton{
+  font-family: 'Didact Gothic', sans-serif;
+  color: var(--btn-text) !important;
+  background: var(--btn-bg);
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+  border: 2px solid var(--btn-bg) !important;
+  border-radius: 6px;
+  display: inline-block;
+}
+
 .mybutton:hover{
   color: var(--btn-hover-text) !important;
   background: var(--btn-hover-bg);
@@ -57,8 +69,19 @@ body{
   transition: all 0.4s ease 0s;
 }
 
+.myCommentButton:hover{
+  color: black !important;
+  background: #DCDCDC;
+  border-color: white !important;
+  transition: all 0.4s ease 0s;
+}
+
 .mybutton_container{
   text-align: center;
+}
+
+.myCommentButton_container{
+  text-align: right;
 }
 
 .form-title {

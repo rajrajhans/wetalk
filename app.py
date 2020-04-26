@@ -1,4 +1,4 @@
-from flask import Flask, g, render_template, redirect, flash, url_for, abort, Response
+from flask import Flask, g, render_template, redirect, flash, url_for, abort, Response, request
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_bcrypt import check_password_hash
 import models
@@ -133,7 +133,7 @@ def stream(username=None, myprofile=None):
             user = current_user
     if username:
         template = 'user_stream.html'
-    return render_template(template, stream=stream, user=user, format=format, isSinglePost=0)
+    return render_template(template, stream=stream, user=user, format=format)
 
 
 @app.route('/img/<int:post_id>')
@@ -144,12 +144,24 @@ def serve_image(post_id):
     return r
 
 
-@app.route('/post/<int:post_id>')
+@app.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def view_post(post_id):
     posts = models.Post.select().where(models.Post.id == post_id)
+    comments = models.Comments.select().where(models.Comments.post_id == post_id)
+    form = forms.CommentForm()
+
+    if form.validate_on_submit():
+        models.Comments.create(
+            user_id=g.user._get_current_object(),
+            post_id=post_id,
+            comment=form.comment.data.strip()
+        )
+        flash("Comment Posted!", "success")
+        return redirect(request.referrer)
+
     if posts.count() == 0:
         abort(0)
-    return render_template('stream.html', stream=posts, format=format, isSinglePost=1)
+    return render_template('singlePost.html', stream=posts, format=format, form=form, comments = comments)
 
 
 @app.route('/like/<int:post_id>')
@@ -170,7 +182,8 @@ def like_post(post_id):
         models.Post.id == post.id
     ).execute()
 
-    return redirect(url_for('index'))
+    return redirect(request.referrer)
+
 
 @app.route('/unlike/<int:post_id>')
 @login_required
@@ -189,7 +202,8 @@ def unlike_post(post_id):
     ).where(
         models.Post.id == post.id
     ).execute()
-    return redirect(url_for('index'))
+    return redirect(request.referrer)
+
 
 @app.route('/follow/<username>')
 @login_required

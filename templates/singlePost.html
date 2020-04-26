@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% from 'macros.html' import render_field %}
+{% block content %}
+{% for post in stream %}
+<article>
+    <div class="Singlepost-wrap">
+
+      <div class="post-header">
+
+        <img src="{{ post.user.gravatar_url() }}" alt="" class="avator" id="userAvatar" height="48px"  width="48px">
+        <img src="{{ post.user.gravatar_url() }}" alt="" class="avator" id="userAvatar" height="48px"  width="48px">
+
+        <span id="profileLink">
+            <a class="profileLinkClass" href="{{ url_for('stream', username=post.user.username) }}">
+                {{ post.user.name }}
+            </a>
+        </span>
+
+        <span id="profileUsername">@{{ post.user.username }}
+
+        <img src="https://s3.ap-south-1.amazonaws.com/dmu-prod/assets/app_icons/profile_verified.png" style="width: 18px; height: 18px; display: {{ post.user.display() }};">
+        </span>
+
+        <span class="time" id="postTime"> <time data-time="{{ post.timestamp }}" datetime="{{ format(post.timestamp) }}">{{ format(post.timestamp) }}</time></span>
+
+        <!--follow/unfollow buttons-->
+        <div id="followBtn">
+            {% if current_user.is_authenticated %}
+                {% if post.user != current_user %}
+                    {% if not post.user in current_user.following() %}
+                        <a href="{{ url_for('follow', username=post.user.username) }}" class="btn bk-bs-btn-default">Follow</a>
+                    {% else %}
+                        <a href="{{ url_for('unfollow', username=post.user.username) }}" class="btn btn-default btn-xs">Unfollow</a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+
+      </div>
+
+        <div class="post-body">
+          <p>{{ post.content }}</p>
+      </div>
+
+        {% if post.imageThere == 1 %}
+        <div class="post-img-wrap">
+            <img src="/img/{{post.id}}" alt="Image, if exists, will go here" class="post-img">
+        </div>
+        {% endif %}
+
+        {% if current_user.is_authenticated %}
+        <div class="reactionsWrapper">
+            <div id="likeButton" >
+                {% if current_user.hasUserLiked(post.id) %}
+                    <a href="/unlike/{{post.id}}"
+                       class="likeUnlikeButtonLink"
+                       id="unLikeButtonLink"
+                       data-id="{{post.id}}">
+                        <span class="fa fa-thumbs-up"></span>
+                        Unlike
+                    </a>
+                {% else %}
+                    <a href="/like/{{post.id}}" class="likeUnlikeButtonLink" id="likeButtonLink" data-id="{{post.id}}">
+                        <span class="fa fa-thumbs-o-up"></span>
+                        Like
+                    </a>
+                {% endif %}
+
+            </div>
+
+            <div id="likeCount">
+                {{post.numLikes}} Likes
+            </div>
+        </div>
+        {% else %}
+            <div id="likeCountLoggedOut">
+                {{post.numLikes}} Likes
+            </div>
+        {% endif %}
+        <hr class="separatingLine">
+    <form method="POST" action="" class="form">
+        {{ form.hidden_tag() }}
+        {% for field in form %}
+            {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="notification error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            {{ field(placeholder=field.label.text, class_="form-control myCommentForm") }}
+        {% endfor %}
+        <div class="myCommentButton_container"><button type="submit" id="submit" class="myCommentButton">Comment</button></div>
+    </form>
+
+    <div class="comment-body">
+        <hr class="CommentSeparatingLine">
+        {% for comment in comments %}
+        <div class="post-header">
+
+        <img src="{{ comment.user_id.gravatar_url() }}" alt="" class="avator" id="userAvatar" height="48px"  width="48px">
+
+        <span id="profileLink">
+            <a class="profileLinkClass" href="{{ url_for('stream', username=comment.user_id.username) }}">
+                {{ comment.user_id.name }}
+            </a>
+        </span>
+
+        <span id="profileUsername">@{{ comment.user_id.username }}
+
+        <img src="https://s3.ap-south-1.amazonaws.com/dmu-prod/assets/app_icons/profile_verified.png" style="width: 18px; height: 18px; display: {{ comment.user_id.display() }};">
+        </span>
+
+        <span class="time" id="postTime"> <time data-time="{{ post.timestamp }}" datetime="{{ format(post.timestamp) }}">{{ format(comment.timestamp) }}</time></span>
+
+        <!--follow/unfollow buttons-->
+        <div id="followBtn">
+            {% if current_user.is_authenticated %}
+                {% if post.user != current_user %}
+                    {% if not post.user in current_user.following() %}
+                        <a href="{{ url_for('follow', username=comment.user_id.username) }}" class="btn bk-bs-btn-default">Follow</a>
+                    {% else %}
+                        <a href="{{ url_for('unfollow', username=comment.user_id.username) }}" class="btn btn-default btn-xs">Unfollow</a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+
+      </div>
+
+            <p class="commentContent">{{ comment.comment }}</p>
+        <hr class="CommentSeparatingLine">
+        {% endfor %}
+    </div>
+
+
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+            //when user clicks on like
+            $("#likeButtonLink").click(function(){
+                const postid = $(this).data('id');
+
+                $.ajax({
+                    url: '/like/${this.postid}'
+                })
+            })
+        })
+      </script>
+</article>
+
+{% endfor %}
+{% endblock %}

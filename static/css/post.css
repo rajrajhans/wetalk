@@ -23,6 +23,19 @@
   transition: all .2s ease-in-out;
 }
 
+.Singlepost-wrap {
+  max-width:800px;
+  background: var(--post-bg);
+  margin: auto;
+  margin-top: 10px;
+  border-radius:10px;
+  padding: 30px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+  transition: all .2s ease-in-out;
+}
+
 .post-wrap:hover{
   background-color: #34363f;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -76,6 +89,10 @@
   font-size: 16px;
 }
 
+.profileLinkClass:hover{
+  color: var(--text);
+}
+
 .post-header-info span {
   color:#657786;
   font-weight:normal;
@@ -86,6 +103,13 @@
   font-weight:normal;
   margin-top: 20px;
   font-size: 20px;
+  color: #fff;
+}
+
+.comment-body {
+  font-weight:normal;
+  margin-top: 5px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -150,6 +174,29 @@
   padding-right: 15px;
 }
 
+.separatingLine{
+  border-color: #5f5f5f;
+  margin: 30px -30px 30px -30px;
+}
+
+.CommentSeparatingLine{
+  border-color: #393939 ;
+  margin: 20px 0;
+}
+
+.myCommentForm{
+  width: 100%;
+}
+
+#comment{
+  width: 100% !important;
+  height: 60px !important;
+}
+
+.commentContent{
+  margin-left: 30px;
+}
+
 @media screen and (max-width:430px){
   .post-header {
    grid-template-columns: 0.5fr 1fr;
@@ -158,6 +205,10 @@
     margin-bottom: 20px;
   }
   .post-body {
+    margin-bottom: 30px;
+  }
+
+  .comment-body {
     margin-bottom: 30px;
   }
   .post-img-wrap {

@@ -6,23 +6,23 @@ from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Len
 
 
 def name_exists(form, field):
-    if User.select().where(User.username==field.data).exists():
+    if User.select().where(User.username == field.data).exists():
         raise ValidationError("User already exists")
 
 
 def email_exists(form, field):
-    if User.select().where(User.email==field.data).exists():
+    if User.select().where(User.email == field.data).exists():
         raise ValidationError("User already exists")
 
 
 class RegisterForm(Form):
-    name= StringField(
+    name = StringField(
         'Name',
         validators=[
             DataRequired()
         ]
     )
-    username= StringField(
+    username = StringField(
         'Username',
         validators=[
             DataRequired(),
@@ -34,7 +34,7 @@ class RegisterForm(Form):
             name_exists
         ]
     )
-    email= StringField(
+    email = StringField(
         'Email',
         validators=[
             DataRequired(),
@@ -42,7 +42,7 @@ class RegisterForm(Form):
             email_exists
         ]
     )
-    password= PasswordField(
+    password = PasswordField(
         'Password',
         validators=[
             DataRequired(),
@@ -50,7 +50,7 @@ class RegisterForm(Form):
             EqualTo('password2', message='Passwords do not match')
         ]
     )
-    password2= PasswordField(
+    password2 = PasswordField(
         'Confirm Password',
         validators=[
             DataRequired()
@@ -59,17 +59,18 @@ class RegisterForm(Form):
 
 
 class LoginForm(Form):
-    email=StringField(
+    email = StringField(
         'Email',
         validators=[
             DataRequired(), Email()]
     )
-    password=PasswordField(
+    password = PasswordField(
         'Password',
         validators=[
             DataRequired()
         ]
     )
+
 
 class PostForm(Form):
     content = TextAreaField(
@@ -78,10 +79,19 @@ class PostForm(Form):
             DataRequired()
         ]
     )
-    image=FileField(
+    image = FileField(
         'Image',
         validators=[
             FileAllowed(['jpg', 'jpeg', 'png'], 'Images Only!')
         ],
         default=None
+    )
+
+
+class CommentForm(Form):
+    comment = TextAreaField(
+        "Add a Comment",
+        validators=[
+            DataRequired()
+        ]
     )

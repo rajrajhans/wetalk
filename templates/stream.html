@@ -38,12 +38,16 @@
       </div>
 
         <div class="post-body">
-          <p>{{ post.content }}</p>
+            <a href="/post/{{post.id}}" style="text-decoration: none; color:white;">
+                <p>{{ post.content }}</p>
+            </a>
       </div>
 
         {% if post.imageThere == 1 %}
         <div class="post-img-wrap">
+            <a href="/post/{{post.id}}" style="text-decoration: none; color:white;">
             <img src="/img/{{post.id}}" alt="Image, if exists, will go here" class="post-img">
+            </a>
         </div>
         {% endif %}
 
@@ -78,20 +82,12 @@
         {% endif %}
     </div>
     <script>
-        $(document).ready(function(){
-            //when user clicks on like
-            $("#likeButtonLink").click(function(){
-                const postid = $(this).data('id');
 
-                $.ajax({
-                    url: '/like/${this.postid}'
-                })
-            })
-        })
-      </script>
+    </script>
     {% if isSinglePost %}
             WILL SHOW UP ONLY ON SINGLE POS     T
     {% endif %}
+
 </article>
 
 {% endfor %}

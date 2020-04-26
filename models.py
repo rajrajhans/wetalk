@@ -156,7 +156,17 @@ class Likes(Model):
         database = DATABASE_proxy
 
 
+class Comments(Model):
+    user_id = ForeignKeyField(User, related_name='user_likes', null=True)
+    post_id = ForeignKeyField(Post, related_name='post_likes', null=True)
+    comment = TextField()
+    timestamp = DateTimeField(default=datetime.now)
+
+    class Meta:
+        database = DATABASE_proxy
+
+
 def initialize():
     DATABASE_proxy.connection()
-    DATABASE_proxy.create_tables([User, Post, Relationship, Likes], safe=True)
+    DATABASE_proxy.create_tables([User, Post, Relationship, Likes, Comments], safe=True)
     DATABASE_proxy.close()
