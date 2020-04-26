@@ -73,7 +73,7 @@
         </div>
         {% else %}
             <div id="likeCountLoggedOut">
-                {{post.numLikes}}
+                {{post.numLikes}} Likes
             </div>
         {% endif %}
     </div>
@@ -89,6 +89,9 @@
             })
         })
       </script>
+    {% if isSinglePost %}
+            WILL SHOW UP ONLY ON SINGLE POS     T
+    {% endif %}
 </article>
 
 {% endfor %}

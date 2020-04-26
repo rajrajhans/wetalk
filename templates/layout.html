@@ -42,7 +42,7 @@
                     <ul class="navbar-nav ml-auto">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item login-name text-center">
-                            <span class="navbar-text">Logged in as {{ current_user.username }}</span>
+                            <span class="navbar-text">Hi, {{ current_user.username }}</span>
                         </li>
                         {% endif %}
 
