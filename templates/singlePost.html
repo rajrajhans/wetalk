@@ -98,6 +98,7 @@
         </div>
         {% endif %}
         <hr class="separatingLine">
+        {% if current_user.is_authenticated %}
     <form method="POST" action="" class="form">
         {{ form.hidden_tag() }}
         {% for field in form %}
@@ -110,6 +111,7 @@
         {% endfor %}
         <div class="myCommentButton_container"><button type="submit" id="submit" class="myCommentButton">Comment</button></div>
     </form>
+        {% endif %}
 
     <div class="comment-body">
         <hr class="CommentSeparatingLine">

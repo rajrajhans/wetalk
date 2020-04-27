@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3980d5e1-f0d6-431c-acdd-2d4fb37c68b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social1.db" beforeDir="false" afterPath="$PROJECT_DIR$/social1.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/post.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/singlePost.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/singlePost.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="97" column="14" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="14" />
+            <state relative-caret-position="525">
+              <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#div#3;n#div#0;n#article#0;n#!!top" />
@@ -51,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/stream.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="100" column="14" selection-start-line="92" selection-start-column="8" selection-end-line="100" selection-end-column="14" />
+            <state relative-caret-position="248">
+              <caret line="91" column="18" lean-forward="true" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#article#0;n#!!top" expanded="true" />
@@ -116,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/post.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="743">
+            <state relative-caret-position="261">
               <caret line="259" column="20" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
             </state>
           </provider>
@@ -224,9 +222,9 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/stream.html" />
-        <option value="$PROJECT_DIR$/templates/singlePost.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/static/css/post.css" />
+        <option value="$PROJECT_DIR$/templates/singlePost.html" />
       </list>
     </option>
   </component>
@@ -403,7 +401,7 @@
       <workItem from="1587561938395" duration="17763000" />
       <workItem from="1587644494218" duration="12276000" />
       <workItem from="1587902121084" duration="19150000" />
-      <workItem from="1587973823983" duration="1413000" />
+      <workItem from="1587973823983" duration="1659000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1555263198501</created>
@@ -430,7 +428,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222083000" />
+    <option name="totallyTimeSpent" value="222329000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-526" width="1936" height="1056" extended-state="6" />
@@ -451,7 +449,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.33060557" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.26350245" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.33224222" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.33152762" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="14" weight="0.2618658" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -740,33 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/singlePost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="97" column="14" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#article#0;n#!!top" />
-            <element signature="n#div#0;n#div#3;n#div#0;n#article#0;n#!!top" />
-            <element signature="n#div#0;n#div#5;n#div#0;n#article#0;n#!!top" />
-            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#5;n#div#0;n#article#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stream.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="100" column="14" selection-start-line="92" selection-start-column="8" selection-end-line="100" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#3;n#div#0;n#article#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/post.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -822,8 +793,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/post.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
+        <state relative-caret-position="261">
           <caret line="259" column="20" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stream.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="91" column="18" lean-forward="true" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#3;n#div#0;n#article#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/singlePost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#article#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#0;n#article#0;n#!!top" />
+            <element signature="n#div#0;n#div#5;n#div#0;n#article#0;n#!!top" />
+            <element signature="n#style#0;n#img#0;n#span#1;n#div#0;n#div#5;n#div#0;n#article#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
