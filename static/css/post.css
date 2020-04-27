@@ -136,7 +136,7 @@
   font-family: 'Didact Gothic', sans-serif;
   display: grid;
   margin-top: 30px;
-  grid-template-columns: 90px 110px 60px 100px;
+  grid-template-columns: 90px 110px 70px 100px;
   grid-template-areas: "likeButton commentButton likeCount commentCount";
 }
 
@@ -244,8 +244,25 @@
   }
   .reactionsWrapper{
     margin-top: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "likeButton commentButton"
+                          "likeCount commentCount";
   }
   #followBtn{
     margin-left: 10px;
+  }
+  #likeButton{
+    margin: auto;
+    font-size: 15px;
+  }
+  #commentButton{
+    margin: auto;
+    font-size: 15px;
+  }
+  #likeCount{
+    margin: 20px auto 0 auto;
+  }
+  #commentCount{
+    margin: 20px auto 0 auto;
   }
 }

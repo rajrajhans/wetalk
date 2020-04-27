@@ -23,3 +23,10 @@ This is a utility model that contains two foreign-keys to the User model and sto
 The Post model stores the text content of the post, when it was created, and who posted it (foreign key to User).
 ![image](http://wetalk.rajrajhans.com/static/img/relation.jpg)
 This web app has been deployed on Heroku. Originally, SQLite was selected as the database management system for this project due to it's convenience. However, Heroku does not support SQLite due to it's ephemeral file system. Therefore, PostgreSQL had to be added as an DBMS. So, instead of scrapping SQLite and switching to postgres, we added a snippet which would check for HEROKU in the config vars (os.environment) and if it exists, instantiate a Postgresql object in peewee, and if not, a SQLiteDatabase object. The username, password and database url for postgres are included in config vars in heroku. So, url-parse was used.
+
+
+1. Provision Database using `heroku addons:create heroku-postgresql:hobby-dev`
+
+2. Run app.py from heroku bash as it has the code that initializes the database
+
+3. Use `heroku pg:psql` to run queries on live database
