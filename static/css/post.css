@@ -135,18 +135,38 @@
   color:white;
   font-family: 'Didact Gothic', sans-serif;
   display: grid;
-  grid-template-columns: 100px 50px;
-  grid-template-areas: "likeButton likeCount";
+  margin-top: 30px;
+  grid-template-columns: 90px 110px 60px 100px;
+  grid-template-areas: "likeButton commentButton likeCount commentCount";
+}
+
+.loggedOutReactionsWrapper{
+  font-family: 'Didact Gothic', sans-serif;
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: 60px 100px;
+  grid-template-areas: " likeCount commentCount";
+}
+
+#commentCount{
+  grid-area: commentCount;
+  margin-left: 10px;
+  color: white;
+}
+
+#commentButton{
+  grid-area: commentButton;
 }
 
 #likeButton{
   grid-area: likeButton;
-  margin-right: 8px;
   color: var(--brand)
 }
 
 #likeCount{
   grid-area: likeCount;
+  margin-left: 10px;
+  color: white;
 }
 
 .likeUnlikeButtonLink{
@@ -191,6 +211,11 @@
 #comment{
   width: 100% !important;
   height: 60px !important;
+}
+
+.grayedOutText{
+  color:rgb(110, 118, 125);
+  margin-right: 3px;
 }
 
 .commentContent{

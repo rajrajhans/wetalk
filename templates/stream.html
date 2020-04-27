@@ -71,14 +71,34 @@
 
             </div>
 
+            <div id="commentButton">
+                <a href="/post/{{post.id}}"
+                       class="likeUnlikeButtonLink"
+                       id="unLikeButtonLink"
+                       data-id="{{post.id}}">
+                        <span class="fa fa-comment"></span>
+                        Comment
+                    </a>
+            </div>
+
             <div id="likeCount">
-                {{post.numLikes}} Likes
+                {{post.numLikes}}<span class="grayedOutText"> Likes</span>
+            </div>
+
+            <div id="commentCount">
+                {{post.numComments}}<span class="grayedOutText"> Comments</span>
             </div>
         </div>
         {% else %}
-            <div id="likeCountLoggedOut">
-                {{post.numLikes}} Likes
+        <div class="loggedOutReactionsWrapper">
+            <div id="likeCount">
+                {{post.numLikes}}<span class="grayedOutText"> Likes</span>
             </div>
+
+            <div id="commentCount">
+                {{post.numComments}}<span class="grayedOutText"> Comments</span>
+            </div>
+        </div>
         {% endif %}
     </div>
     <script>

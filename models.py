@@ -121,6 +121,7 @@ class Post(Model):
     image = BlobField(null=True)
     imageThere = BooleanField(default=0)
     numLikes = IntegerField(default=0)
+    numComments = IntegerField(default=0)
 
     def getLikes(self):
         """returns list of users who liked the post"""

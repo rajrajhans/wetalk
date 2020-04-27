@@ -147,6 +147,7 @@ def serve_image(post_id):
 @app.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def view_post(post_id):
     posts = models.Post.select().where(models.Post.id == post_id)
+    numberOfComments = posts[0].numComments
     comments = models.Comments.select().where(models.Comments.post_id == post_id)
     form = forms.CommentForm()
 
@@ -156,6 +157,13 @@ def view_post(post_id):
             post_id=post_id,
             comment=form.comment.data.strip()
         )
+
+        models.Post.update(
+            numComments=numberOfComments + 1
+        ).where(
+            models.Post.id == post_id
+        ).execute()
+
         flash("Comment Posted!", "success")
         return redirect(request.referrer)
 
