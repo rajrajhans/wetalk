@@ -144,7 +144,7 @@
   font-family: 'Didact Gothic', sans-serif;
   display: grid;
   margin-top: 30px;
-  grid-template-columns: 60px 100px;
+  grid-template-columns: 80px 100px;
   grid-template-areas: " likeCount commentCount";
 }
 

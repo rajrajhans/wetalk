@@ -215,4 +215,8 @@ textarea{
   textarea{
     width: 80%;
   }
+  .alerts{
+    max-width: 100%;
+    width: 100%;
+  }
 }
