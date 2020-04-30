@@ -29,4 +29,4 @@ This web app has been deployed on Heroku. Originally, SQLite was selected as the
 
 2. Run app.py from heroku bash as it has the code that initializes the database
 
-3. Use `heroku pg:psql` to run queries on live database
+3. Use `heroku pg:psql` to run queries on live database 
